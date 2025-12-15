@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
 
   s.name         = "Ensembles"
-  s.version      = "2.7"
+  s.version      = "2.8"
   s.summary      = "A peer-to-peer synchronization framework for Core Data."
 
   s.description  =  <<-DESC
                     Ensembles extends Apple's Core Data framework to add 
-                    peer-to-peer synchronization for Mac OS and iOS. 
+                    peer-to-peer synchronization for macOS and iOS. 
                     Multiple SQLite persistent stores can be coupled together 
                     via a file synchronization platform like iCloud, Dropbox,
                     or even Multipeer Connectivity. 
@@ -54,7 +54,7 @@ Pod::Spec.new do |s|
     ss.ios.deployment_target = '9.0'
     ss.osx.deployment_target = '10.10'
     ss.dependency 'Ensembles/Core'
-    ss.dependency 'ObjectiveDropboxOfficial', '3.9.4'
+    ss.dependency 'ObjectiveDropboxOfficial', '3.11.2'
     ss.source_files = 'Framework/Extensions/CDEDropboxV2CloudFileSystem.{h,m}'
   end
 

@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.7'
 
   s.source        = { 
-    :git => 'git@github.com:mentalfaculty/ensembles-next.git', 
+    :git => 'https://github.com/mentalfaculty/ensembles-next.git', 
     :tag => s.version.to_s
   }
   

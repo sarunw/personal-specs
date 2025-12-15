@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Ensembles"
-  s.version      = "2.7"
+  s.version      = "2.5.2"
   s.summary      = "A peer-to-peer synchronization framework for Core Data."
 
   s.description  =  <<-DESC
@@ -42,25 +42,30 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'CloudKit' do |ss|
-    ss.ios.deployment_target = '8.0'
-    ss.osx.deployment_target = '10.10'
     ss.dependency 'Ensembles/Core'
     ss.framework = 'CloudKit'
     ss.source_files = 'Framework/Extensions/CDECloudKitFileSystem.{h,m}'
   end
+  
+  s.subspec 'Dropbox' do |ss|
+    ss.dependency 'Ensembles/Core'
+    ss.ios.dependency 'Dropbox-iOS-SDK'
+    ss.osx.dependency 'Dropbox-OSX-SDK'
+    ss.source_files = 'Framework/Extensions/CDEDropboxCloudFileSystem.{h,m}'
+  end
 
   s.subspec 'DropboxV2' do |ss|
     # Bump deployment targets to match ObjectiveDropboxOfficial's
-    ss.ios.deployment_target = '9.0'
+    ss.ios.deployment_target = '8.0'
     ss.osx.deployment_target = '10.10'
     ss.dependency 'Ensembles/Core'
-    ss.dependency 'ObjectiveDropboxOfficial', '3.9.4'
+    ss.dependency 'ObjectiveDropboxOfficial', '~> 3.0'
     ss.source_files = 'Framework/Extensions/CDEDropboxV2CloudFileSystem.{h,m}'
   end
 
   s.subspec 'Multipeer' do |ss|
     ss.dependency 'Ensembles/Core'
-    ss.dependency 'SSZipArchive'
+    ss.dependency 'ZipArchive'
     ss.framework = 'MultipeerConnectivity'
     ss.source_files = 'Framework/Extensions/CDEMultipeerCloudFileSystem.{h,m}'
   end
@@ -72,13 +77,13 @@ Pod::Spec.new do |s|
 
   s.subspec 'Zip' do |ss|
     ss.dependency 'Ensembles/Core'
-    ss.dependency 'SSZipArchive'
+    ss.dependency 'ZipArchive'
     ss.source_files = 'Framework/Extensions/CDEZipCloudFileSystem.{h,m}'
   end
   
   s.subspec 'Encrypt' do |ss|
     ss.dependency 'Ensembles/Core'
-    ss.dependency 'RNCryptor-objc', '~> 3.0'
+    ss.dependency 'RNCryptor'
     ss.framework = 'Security'
     ss.source_files = 'Framework/Extensions/CDEEncryptedCloudFileSystem.{h,m}'
   end
